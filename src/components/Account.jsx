@@ -7,7 +7,7 @@ function Account() {
   return (
     <>
         <Header />
-        <div className='flex justify-center gap-3 bg-[#f1ebe7] h-[100vh] py-24'>
+        <div className='flex justify-center gap-3 bg-[#f1ebe7] h-[100vh] py-32'>
             <Signin />
             <Signup />
         </div>

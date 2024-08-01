@@ -105,7 +105,7 @@ const Signup = () => {
               {err.passwordLength && <p className="text-red-600 !mt-0">{err.passwordLength}</p>}
               {err.allError && <p className="text-red-600 !mt-0">{err.allError}</p>}
               <div>
-                <button type="submit" className="flex w-full justify-center rounded-md bg-black px-5 py-5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#f1ebe7] hover:text-black hover:border-2 hover:border-black">SIGN IN</button>
+                <button type="submit" className="flex w-full justify-center rounded-md bg-black px-5 py-5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#f1ebe7] hover:text-black hover:border-2 hover:border-black">REGISTRAR</button>
               </div>
           </form>
         </div>

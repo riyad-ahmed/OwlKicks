@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
-    <header className='bg-[#fff] py-4 border-b border-[#f0f0f0] sm:px-10 px-6 font-[sans-serif] min-h-[70px]'>
+    <header className='bg-[#fff] py-4 border-b border-[#f0f0f0] sm:px-10 px-6 font-[sans-serif] min-h-[70px] fixed w-full'>
       <div className='flex flex-wrap items-center justify-between lg:gap-y-2 gap-y-4 gap-x-4'>
         <div className='hidden lg:block justify-end'>
           <Menu />

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Menu() {
+function MenuList() {
   return (
     <ul
     className='lg:!flex lg:ml-8 max-lg:w-full lg:space-x-4 max-lg:space-y-2 max-lg:my-4'>
@@ -18,4 +18,4 @@ function Menu() {
   )
 }
 
-export default Menu
+export default MenuList

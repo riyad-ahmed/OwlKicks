@@ -1,22 +1,36 @@
 import React from 'react';
-import Menu from './Menu';
-import { CiUser } from "react-icons/ci";
-import { BsQuestionCircle } from "react-icons/bs";
-
-import { Link } from 'react-router-dom'
-
+import { useNavigate } from 'react-router-dom';
+import { getAuth, signOut } from 'firebase/auth';
+import { BsQuestionCircle } from 'react-icons/bs';
+import MenuList from '../MenuList';
+import Dropdown from './Dropdown';
 
 const Header = () => {
+  const auth = getAuth();
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        navigate('/Account');
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log(error.code);
+      });
+  };
+
   return (
     <header className='bg-[#fff] py-4 border-b border-[#f0f0f0] sm:px-10 px-6 font-[sans-serif] min-h-[70px] fixed w-full'>
       <div className='flex flex-wrap items-center justify-between lg:gap-y-2 gap-y-4 gap-x-4'>
         <div className='hidden lg:block justify-end'>
-          <Menu />
+          <MenuList />
         </div>
         <div className='m-auto'>
-            <a href="add" className='text-[40px] font-bold font-[Righteous]'>
-              OwlKicks
-            </a>
+          <a href="add" className='text-[40px] font-bold font-[Righteous]'>
+            OwlKicks
+          </a>
         </div>
         <div className='flex items-center ml-auto lg:order-1'>
           <div className="flex items-center">
@@ -33,19 +47,14 @@ const Header = () => {
               className="bg-[#e5e5e5] focus:bg-[#d8d8d8] focus:drop-shadow-sm w-full px-6 h-10 rounded outline-none text-sm"
             ></input>
           </div>
-          <div id='user' >
-            <Link to="/account">  
-              <CiUser className='text-2xl ml-3'/>
-            </Link>
-          </div>
+            <Dropdown handleLogOut={handleLogOut} />
           <div>
-          <BsQuestionCircle className='text-xl ml-3'/>
+            <BsQuestionCircle className='text-xl ml-3' />
           </div>
         </div>
       </div>
     </header>
   );
-
 };
 
 export default Header;

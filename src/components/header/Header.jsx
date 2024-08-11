@@ -19,6 +19,11 @@ const Header = () => {
         // An error happened.
         console.log(error.code);
       });
+
+      auth.signOut().then(() => {
+        localStorage.removeItem('user');
+        navigate("/Account"); // Redirect to the sign-in page or another route
+      });
   };
 
   return (

@@ -46,6 +46,11 @@ function Signin() {
       signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in 
+        const user = userCredential.user;
+
+        // Store user data locally
+        localStorage.setItem('user', JSON.stringify(user));
+
         setErr({ allError: '', name: '', email: '', password: '', passwordLength: '' });
         navigate("/");
         

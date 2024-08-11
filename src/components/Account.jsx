@@ -2,6 +2,7 @@ import React from 'react'
 import Header from './header/Header'
 import Signin from './Signin'
 import Signup from './Signup'
+import MyProfile from './MyProfile'
 
 function Account() {
   return (

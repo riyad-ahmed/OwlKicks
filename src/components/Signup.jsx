@@ -15,7 +15,8 @@ const Signup = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [err, setErr] = useState({allError: '', name: '', email: '', password: '', passwordLength: ''});
+  const [phone, setPhone] = useState('');
+  const [err, setErr] = useState({allError: '', name: '', email: '',phone: '', password: '', passwordLength: ''});
 
 
 
@@ -37,6 +38,10 @@ const Signup = () => {
       errors.email = 'Enter your email';
     }
 
+    if (!phone) {
+      errors.phone = 'Enter your phone number';
+    }
+
     if (!password) {
       errors.password = 'Enter your password';
     } else if (password.length < 6) {
@@ -48,12 +53,21 @@ const Signup = () => {
     } else {
       createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        //signed in
+
+        //signed up
+        const user = userCredential.user;
+
+        // Store user data locally
+        localStorage.setItem('user', JSON.stringify(user));
+
+
         updateProfile(auth.currentUser, {
           displayName: name, 
           photoURL: "https://www.w3schools.com/howto/img_avatar.png"
+
         }).then(() => {
           // Profile updated!
+          
           setErr({ allError: '', name: '', email: '', password: '', passwordLength: '' });
           navigate("/");
         });
@@ -91,6 +105,13 @@ const Signup = () => {
                 <input onChange={(e)=> setEmail(e.target.value)} id="email" name="email" type="email" autoComplete="email"  className="block w-full rounded-md border-0 p-5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6" />
               </div>
               {err.email && <p className="text-red-600 !mt-0">{err.email}</p>}
+            </div>
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">PHONE NUMBER</label>
+              <div>
+                <input onChange={(e)=> setPhone(e.target.value)} id="phone" name="phone" type="text" autoComplete="phone"  className="block w-full rounded-md border-0 p-5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6" />
+              </div>
+              {err.phone && <p className="text-red-600 !mt-0">{err.phone}</p>}
             </div>
 
             <div>

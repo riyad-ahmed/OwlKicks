@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import firebaseConfig from '../firebaseConfig';
-import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
@@ -16,7 +16,7 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phone, setPhone] = useState('');
-  const [err, setErr] = useState({allError: '', name: '', email: '',phone: '', password: '', passwordLength: ''});
+  const [err, setErr] = useState({allError: '', name: '', email: '', phone: '', password: '', passwordLength: ''});
 
 
 
@@ -26,7 +26,7 @@ const Signup = () => {
 
     let errors = {};
 
-    if (!name && !email && !password) {
+    if (!name && !email && !phone && !password) {
       errors.allError = 'All fields are required';
     }
 
@@ -53,29 +53,20 @@ const Signup = () => {
     } else {
       createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-
         //signed up
-        const user = userCredential.user;
+          const user = userCredential.user;
 
         // Store user data locally
-        localStorage.setItem('user', JSON.stringify(user));
+          localStorage.setItem('user', JSON.stringify(user));
 
-
-        updateProfile(auth.currentUser, {
-          displayName: name, 
-          photoURL: "https://www.w3schools.com/howto/img_avatar.png"
-
-        }).then(() => {
-          // Profile updated!
-          
-          setErr({ allError: '', name: '', email: '', password: '', passwordLength: '' });
+          setErr({ allError: '', name: '', email: '', phone: '', password: '', passwordLength: '' });
           navigate("/");
-        });
+        
       })
       .catch((error) => {
         // An error occurred
           console.log(error.code);
-          if (error.code == "auth/email-already-in-use"){
+          if (error.code === "auth/email-already-in-use"){
             setErr({email: 'Email already in use'});
           }
         });  

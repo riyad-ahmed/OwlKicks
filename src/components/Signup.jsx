@@ -3,6 +3,7 @@ import { useState } from 'react';
 import firebaseConfig from '../firebaseConfig';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Signup = () => {
 
@@ -75,7 +76,7 @@ const Signup = () => {
 
   return (
     <>
-      <div className="px-6 py-12 lg:px-8 w-[30rem]">
+      <div className="px-6 lg:px-8 w-[30rem]">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="mt-10 text-2xl font-bold leading-9 tracking-tight text-gray-900">CREATE AN ACCOUNT</h2>
           <p className='py-2'>We never save credit card information.</p>
@@ -120,6 +121,7 @@ const Signup = () => {
                 <button type="submit" className="flex w-full justify-center rounded-md bg-black px-5 py-5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#f1ebe7] hover:text-black hover:border-2 hover:border-black">REGISTRAR</button>
               </div>
           </form>
+          <Link to="/signin">Signin</Link>
         </div>
       </div>
     </>
@@ -127,3 +129,4 @@ const Signup = () => {
 }
 
 export default Signup
+

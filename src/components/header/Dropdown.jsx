@@ -36,12 +36,12 @@ function Dropdown({ handleLogOut }) {
                   <Menu.Item>
                     {({ active }) => (
                       <Link
-                        to="/account"
+                        to="/Account"
                         className={`${
                           active ? 'bg-gray-100' : ''
                         } flex justify-between w-full px-4 py-2 text-sm leading-5 text-left`}
                       >
-                        Login/SignUp
+                        SignUp
                       </Link>
                     )}
                   </Menu.Item>

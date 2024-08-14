@@ -4,6 +4,7 @@ import { useState } from 'react';
 import firebaseConfig from '../firebaseConfig';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
+import Header from './header/Header';
 
 function Signin() {
 
@@ -67,7 +68,8 @@ function Signin() {
 
   return (
     <>
-      <div className="px-6 py-12 lg:px-8 w-[30rem]">
+    <Header />
+      <div className="px-6 flex-col w-full lg:px-8 flex justify-center bg-[#f1ebe7] h-[100vh] py-32">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="mt-10 text-2xl font-bold leading-9 tracking-tight text-gray-900">LOGIN</h2>
         </div>

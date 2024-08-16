@@ -16,8 +16,7 @@ const Signup = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [phone, setPhone] = useState('');
-  const [err, setErr] = useState({allError: '', name: '', email: '', phone: '', password: '', passwordLength: ''});
+  const [err, setErr] = useState({allError: '', name: '', email: '', password: '', passwordLength: ''});
 
 
 
@@ -27,7 +26,7 @@ const Signup = () => {
 
     let errors = {};
 
-    if (!name && !email && !phone && !password) {
+    if (!name && !email && !password) {
       errors.allError = 'All fields are required';
     }
 
@@ -37,10 +36,6 @@ const Signup = () => {
 
     if (!email) {
       errors.email = 'Enter your email';
-    }
-
-    if (!phone) {
-      errors.phone = 'Enter your phone number';
     }
 
     if (!password) {
@@ -60,7 +55,7 @@ const Signup = () => {
         // Store user data locally
           localStorage.setItem('user', JSON.stringify(user));
 
-          setErr({ allError: '', name: '', email: '', phone: '', password: '', passwordLength: '' });
+          setErr({ allError: '', name: '', email: '', password: '', passwordLength: '' });
           navigate("/");
         
       })
@@ -98,14 +93,6 @@ const Signup = () => {
               </div>
               {err.email && <p className="text-red-600 !mt-0">{err.email}</p>}
             </div>
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">PHONE NUMBER</label>
-              <div>
-                <input onChange={(e)=> setPhone(e.target.value)} id="phone" name="phone" type="text" autoComplete="phone"  className="block w-full rounded-md border-0 p-5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6" />
-              </div>
-              {err.phone && <p className="text-red-600 !mt-0">{err.phone}</p>}
-            </div>
-
             <div>
               <div className="flex items-center justify-between">
                 <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">PASSWORD</label>

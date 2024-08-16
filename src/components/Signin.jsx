@@ -48,6 +48,7 @@ function Signin() {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
+        console.log(user)
 
         // Store user data locally
         localStorage.setItem('user', JSON.stringify(user));

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import firebaseConfig from '../firebaseConfig';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -49,15 +49,20 @@ const Signup = () => {
     } else {
       createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        //signed up
-          const user = userCredential.user;
+        const user = userCredential.user;
 
-        // Store user data locally
+        // Update the user's display name
+        updateProfile(user, {
+          displayName: name
+        }).then(() => {
+          // Save user data with updated displayName
           localStorage.setItem('user', JSON.stringify(user));
 
           setErr({ allError: '', name: '', email: '', password: '', passwordLength: '' });
           navigate("/");
-        
+        }).catch((error) => {
+          console.log('Error updating profile:', error);
+        });
       })
       .catch((error) => {
         // An error occurred

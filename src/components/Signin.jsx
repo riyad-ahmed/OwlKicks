@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import firebaseConfig from '../firebaseConfig';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import Header from './header/Header';
 
@@ -48,7 +48,17 @@ function Signin() {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        console.log(user)
+        
+        // Update the user's display name
+
+        updateProfile(user, {
+          displayName: name
+        }).then(() => {
+          // Save user data with updated displayName
+          localStorage.setItem('user', JSON.stringify(user));
+        }).catch((error) => {
+          console.log(error);
+        });
 
         // Store user data locally
         localStorage.setItem('user', JSON.stringify(user));

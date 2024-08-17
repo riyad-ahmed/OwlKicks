@@ -79,7 +79,7 @@ function Signin() {
 
   return (
     <>
-    <Header />
+    {/* <Header /> */}
       <div className="px-6 flex-col w-full lg:px-8 flex justify-center bg-[#f1ebe7] h-[100vh] py-32">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="mt-10 text-2xl font-bold leading-9 tracking-tight text-gray-900">LOGIN</h2>

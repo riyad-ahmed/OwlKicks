@@ -63,6 +63,8 @@ function MyProfile() {
                 <div className="text-left mb-6">
                   <p className="text-lg"><strong>Name:</strong> {user.displayName}</p>
                   <p className="text-lg"><strong>Email:</strong> {user.email}</p>
+                  <p className="text-lg"><strong>Phone:</strong> {user.phoneNumber
+}</p>
                 </div>
 
                 {/* Additional user information can go here */}

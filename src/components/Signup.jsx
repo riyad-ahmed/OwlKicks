@@ -9,11 +9,13 @@ const Signup = () => {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [err, setErr] = useState({
     allError: '',
     name: '',
     email: '',
+    phone: '',
     password: '',
     passwordLength: '',
   });
@@ -52,12 +54,17 @@ const Signup = () => {
             displayName: name,
           })
             .then(() => {
-              // Store user data with updated displayName
-              localStorage.setItem('user', JSON.stringify(user));
+              // Store user data with updated displayName and phone
+              const userData = {
+                ...user,
+                phoneNumber: phone // Add phone number to user data
+              };
+              localStorage.setItem('user', JSON.stringify(userData));
               setErr({
                 allError: '',
                 name: '',
                 email: '',
+                phone: '',
                 password: '',
                 passwordLength: '',
               });
@@ -113,6 +120,19 @@ const Signup = () => {
                 />
               </div>
               {err.email && <p className="text-red-600 !mt-0">{err.email}</p>}
+            </div>
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium leading-6 text-gray-900">PHONE  (optional)</label>
+              <div className="mt-2">
+                <input
+                  onChange={(e) => setPhone(e.target.value)}
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  autoComplete="tel"
+                  className="block w-full rounded-md border-0 p-5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
+                />
+              </div>
             </div>
             <div>
               <div className="flex items-center justify-between">

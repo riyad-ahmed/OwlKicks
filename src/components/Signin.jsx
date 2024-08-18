@@ -4,7 +4,6 @@ import { useState } from 'react';
 import firebaseConfig from '../firebaseConfig';
 import { getAuth, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
-import Header from './header/Header';
 
 function Signin() {
 
@@ -109,6 +108,9 @@ function Signin() {
               <button type="submit" className="flex w-full justify-center rounded-md bg-black px-5 py-5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#f1ebe7] hover:text-black hover:border-2 hover:border-black">SIGN IN</button>
             </div>
           </form>
+          <Link to="/signup" className="block mt-6 text-center text-sm text-gray-600 hover:text-gray-900">
+            Sign up
+          </Link>
         </div>
       </div>
     </>

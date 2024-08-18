@@ -84,7 +84,7 @@ const Signup = () => {
 
   return (
     <>
-      <div className="px-6 lg:px-8 flex justify-center bg-[#f1ebe7] h-[100vh] py-32 w-full flex-col ">
+      <div className="px-6 lg:px-8 flex justify-center bg-[#f1ebe7] py-32 w-full flex-col ">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="mt-10 text-2xl font-bold leading-9 tracking-tight text-gray-900">CREATE AN ACCOUNT</h2>
           <p className="py-2">We never save credit card information.</p>

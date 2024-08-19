@@ -7,7 +7,7 @@ const Hero = () => {
 
     useEffect(() => {
       const fetchHumans = async () => {
-        const response = await fetch('/api/humans');
+        const response = await fetch('http://localhost:5000/humans');
         const data = await response.json();
         setHumans(data);
       };

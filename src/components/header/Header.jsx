@@ -33,7 +33,7 @@ const Header = () => {
           <MenuList />
         </div>
         <div className='m-auto'>
-          <a href="add" className='text-[40px] font-bold font-[Righteous]'>
+          <a href="home" className='text-[40px] font-bold font-[Righteous]'>
             OwlKicks
           </a>
         </div>

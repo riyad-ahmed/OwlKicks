@@ -16,17 +16,6 @@ const Hero = () => {
     }, []);
 
   return (
-    // <div className="hero-container">
-    //   {humans.map((human) => (
-    //     <div key={human._id} className="human-card">
-    //       <img src={human.imageUrl} alt={human.name} className="human-image" />
-    //       <h2 className="human-name">{human.name}</h2>
-    //       <p className="human-profession">{human.occupation}</p>
-    //       <p className="human-country">{human.country}</p>
-    //       <p className="human-description">{human.bio}</p>
-    //     </div>
-    //   ))}
-    // </div>
     <div className="hero-container">
             {humans.map((human) => ( 
             <section className="bg-gray-100 py-12">

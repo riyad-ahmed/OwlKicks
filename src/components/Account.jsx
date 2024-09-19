@@ -5,7 +5,6 @@ import Signin from './Signin'
 function Account() {
   return (
     <>
-        <Header />
         <div className=''>
             <Signin />
         </div>

@@ -41,7 +41,7 @@ function Dropdown({ handleLogOut }) {
                           active ? 'bg-gray-100' : ''
                         } flex justify-between w-full px-4 py-2 text-sm leading-5 text-left`}
                       >
-                        SignUp
+                        Sign In
                       </Link>
                     )}
                   </Menu.Item>

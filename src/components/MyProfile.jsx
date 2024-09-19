@@ -35,8 +35,7 @@ function MyProfile() {
 
   return (
      <>
-        <Header />
-        <div className='pt-24'>
+        <div className=''>
             <div className="flex flex-col items-center p-6 bg-[#f1ebe7] min-h-screen">
               <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
                 <h2 className="text-3xl font-semibold text-center mb-6">My Profile</h2>

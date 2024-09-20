@@ -3,18 +3,18 @@ import React, { useState, useEffect } from 'react';
 
 const Hero = () => {
 
-    // const [humans, setHumans] = useState([]);
+    const [products, setHumans] = useState([]);
 
-    // useEffect(() => {
-    //   const fetchHumans = async () => {
-    //     const response = await fetch('http://localhost:5000/humans');
-//     //     const data = await response.json();
-//     //     setHumans(data);
-//     //     console.log(data);
-//     //   };
+    useEffect(() => {
+      const fetchHumans = async () => {
+        const response = await fetch('http://localhost:5000/products');
+        const data = await response.json();
+        setHumans(data);
+        console.log(data);
+      };
   
-//     //   fetchHumans();
-//     // }, []);
+      fetchHumans();
+    }, []);
 
    return (
 //     <div className="hero-container">

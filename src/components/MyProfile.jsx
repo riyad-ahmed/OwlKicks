@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from './header/Header'
 import { useState, useEffect } from 'react';
 
 function MyProfile() {

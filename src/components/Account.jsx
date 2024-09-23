@@ -1,14 +1,14 @@
-import React from 'react'
-import Signin from './Signin'
+import React from "react";
+import Signin from "./Signin";
 
 function Account() {
   return (
     <>
-        <div className=''>
-            <Signin />
-        </div>
+      <div className="">
+        <Signin />
+      </div>
     </>
-  )
+  );
 }
 
-export default Account
+export default Account;

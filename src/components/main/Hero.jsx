@@ -29,9 +29,9 @@ const Hero = () => {
                     className="w-full h-[30rem] object-cover rounded-lg"
                   />
                   <div className=" bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6 rounded-b-lg">
-                    <h2 className="text-2xl md:text-4xl font-bold text-white">
+                    {/* <h2 className="text-2xl md:text-4xl font-bold text-white">
                       {products.name}
-                    </h2>
+                    </h2> */}
                     <p className="text-gray-300 mt-2">
                       Explore the latest trends and technologies shaping the
                       future of web development.
